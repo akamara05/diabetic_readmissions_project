@@ -56,4 +56,4 @@ Based on the requirements, it is possible to earn a maximum of  **X**  points on
 
 |WHAT’S GOING WELL/STRUGGLES|DEVELOPMENT PLAN|INSTRUCTOR FEEDBACK|
 |---------------------------|----------------|-------------------|
-|                           |                |                   |
+|I have tutorials readily available to help scrap the YT data that I need. What I'm struggling with is that I can only seem to obtain data for one video for one channel, my code isn't giving me the same details for all the videos I want per YT page. Also I'll need to take a step back and include code that gets me my initial list of yt channels, specifically vlog channels. What's encouraging is that YT has a good amount of detail per video so my EDA should be vast enough.  I'm encouraged that this project is doable.                       | I'm giving myself till end of day Tuesday(9/14) to get all my data and begin EDA, I'm aware this is later than the expected timeline so I have some catching up to do.                |                   |
