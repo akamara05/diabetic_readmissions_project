@@ -55,4 +55,7 @@ Based on the requirements, it is possible to earn a maximum of  **X**  points on
 
 |WHAT’S GOING WELL/STRUGGLES|DEVELOPMENT PLAN|INSTRUCTOR FEEDBACK|
 |---------------------------|----------------|-------------------|
-|                           |                |                   |
+| * The EDA portion of the project hasn't given me any issues, but this is just a preliminary dive into the data. 
+  * I'm concerned that there aren't strong correlations (over 0.5) amongst the variables. Especially no strong correlation between the variables and readmissions, which is what I eventually want to assess.
+  * I still have some variables to clean up and convert to numerical values so that I can get a more holistic view of what I'm working with. So that should put me in a better spot once completed. 
+  * I'm concerned that this project is basic for a capstone, I'm thinking of ways to approach this that brings added value other than just looking at the variables provided and constructing models from it.|                |                   |
