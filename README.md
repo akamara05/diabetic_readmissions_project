@@ -1,3 +1,5 @@
+from IPython.display import Image
+
 ## Executive Summary 
 
 
@@ -45,6 +47,8 @@ The dataset represents 10 years (1999-2008) of clinical care at 130 US hospitals
 
 ## Cleaning 
 
+Prior to cleaning my dataset had 101,766 observations and 50 features including the target feature, readmission of patients after discharge. 
+
 * Features/variables with more than 40% of their data missing, immediately got dropped:
    - Weight
    - Payer code
@@ -58,22 +62,37 @@ The dataset represents 10 years (1999-2008) of clinical care at 130 US hospitals
 
 A greater percentage of the variables in this data set had the same criteria so learning to apply code to change data types in order to perform EDA, was my biggest challenge within the cleaning process. Learning the necessary coded to clean these helped me grow in terms of coding efficiency.  
 
+After my initial cleaning steps I had cut the datatset to 98,052 and 48 features target variable feature to conduct EDA upon. 
+
+
 ## Explorartory Data Analysis
  
 
 Let’s take a look at some of the results from EDA 
 
-Demographics 
+### Demographics
 
- 
+![alt text](images/race.png "Race Vs. Readmission")
+
+
 ## Modeling and Evaluation 
 
-Three classification models were used: Regression, K-Nearest Neighbors, Random Forest. A baseline score of () was established. Then I leveraged GridSearchCV to identify the best scores and parameters possible for our models. The results are consolidated in the table below. 
+Three classification models were used: Regression, K-Nearest Neighbors, Random Forest. A baseline score of () was established.
+
+For each of the models I used the various methods to arruve at a as the best accuracy and sensivity/ recall socre as posiible.:
+
+1. Deterining and using just the Most Important Features Using a Decision Tree
+
+
+2. Using principal Component Analysis
+3. Levarageing GridSearchCV and fine tuning paramenters to each of teh model.
+
+The results are consolidated in the table below. 
  
  |No.|Model|R2 Training Score|R2 Testing Score|Accuracy|Recall/Sensitivity Score|Comments|
  |---|-----|:---------------:|:--------------:|:------:|:----------------------:|:------:|
  |1|Logistic Regression|0.6184|0.6180|0.6181|0.4336|Higher than baseline but not very high results|
- |2|KNN|0.7202|0.5586|0.5632|0.4336| 0.4731|Expected that the testing score would be higher than testing score, since KNN models commonly over-fit. Accuracy score lower than baseline score of 0.4680|
+ |2|KNN|0.7202|0.5586|0.5632|0.4336|Expected that the testing score would be higher than testing score, since KNN models commonly over-fit. Accuracy score lower than baseline score of 0.4680|
  |3|Random Forest|0.9999|0.6218|0.6181|0.5151|Same accuracy scores as the logistic regression model.|
  |4|Logistic w/ Important Features|0.6090|0.6093|0.6083|-|All my scores compared to the initial model decrease|
  |5|KNN w/ Important Features|0.7170|0.5642|0.5603|-|Slight in improvement in accuracy score compared to the initial KNN model|
@@ -99,14 +118,21 @@ Three classification models were used: Regression, K-Nearest Neighbors, Random F
 
 In terms of next steps, since my classification models were not quite as good at differentiating readmissions, I would like to attempt another binary classification to properly distinguish readmission occurrence. The inclusion of more features would most likely be required since I had stripped my features to only just above 30 features which I believe was the cause of consistent underperformance of my three models for identifying patient readmission. Maybe additional data such as family history  may need to be included to a dataset such as this. In a lot of medical cases, family history seems to play a major role in diagnosing patients especially with heredity diseases, such as Type 2 diabetes in this case. Maybe predictable of me, but given the current COVID pandemic, I’d be interested in exploring how this past 2 years have affected readmission rates.
 
+
 ## References 
 
-Source: UCI Machine Learning Repository, https://archive.ics.uci.edu/ml/datasets/Diabetes+130-US+hospitals+for+years+1999-2008
-Source: UCI Machine Learning Repository, https://archive.ics.uci.edu/ml/datasets/Diabetes+130-US+hospitals+for+years+1999-2008
-Diabetes: Magnitude and Mechanisms Michael J. Fowler, MD
-Clinical Diabetes 2010 Jan; 28(1): 42-46.
+[1] Center for Disease Control and prevention (2021),"Diabtes Basics.", https://www.cdc.gov/diabetes/basics/getting-tested.html
 
-3 Strategies to Reduce Hospital Readmission Rates, Costs
-Identifying causes, enhancing transitional care, and engaging patients are three ways that hospitals can reduce hospital readmission rates and avoid penalties.
-By Jacqueline LaPointe
+
+[2] Fowler, J. Michael, MD, (2010), "Diabetes: Magnitude and Mechanisms.", https://clinical.diabetesjournals.org/content/28/1/42
+
+
+[3] LaPointe, Jacqueline, (2018), "3 Strategies to Reduce Hospital Readmission Rates, Costs: _Identifying causes, enhancing transitional care, and engaging patients are three ways that hospitals can reduce hospital readmission rates and avoid penalties."_, https://revcycleintelligence.com/news/3-strategies-to-reduce-hospital-readmission-rates-costs
+
+
+[4] Strack, Beata, et al.,  (2014), "Impact of HbA1c measurement on hospital readmission rates: analysis of 70,000 clinical database patient records." BioMed research international 2014, https://www.hindawi.com/journals/bmri/2014/781670/
+
+
+[5] "UCI Machine Learning Repository", (2014), https://archive.ics.uci.edu/ml/datasets/Diabetes+130-US+hospitals+for+years+1999-20
+
 
