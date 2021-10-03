@@ -48,9 +48,9 @@ The dataset represents 10 years (1999-2008) of clinical care at 130 US hospitals
 
 Three classification models were used: Regression, K-Nearest Neighbors, Random Forest. A baseline score of () was established. Then I leveraged GridSearchCV to identify the best scores and parameters possible for our models. The results are consolidated in the table below. 
  
- |No.||Model||R2 Training Score||R2 Testing Score||Accuracy||Recall/Sensitivity Score||Comments|
- |---||-----||-----------------||----------------||--------||------------------------||--------|
- |1||Logistic Regression||0.6184||0.6180||0.6181||0.4336||Higher than baseline but not very high results|
+ |No.|Model|R2 Training Score|R2 Testing Score|Accuracy|Recall/Sensitivity Score|Comments|
+ |---|-----|-----------------|----------------|--------|------------------------|--------|
+ |1|Logistic Regression|0.6184|0.6180|0.6181|0.4336|Higher than baseline but not very high results|
  
  
     
