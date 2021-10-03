@@ -1,63 +1,87 @@
-# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Data Science: Capstone Project
+## Executive Summary 
 
-The Capstone Project is divided into 5 deliverables, each building on top of skills learned previously to scaffold students' learning over the entire course. Project deliverables include objectives, requirements, rubrics, and suggested resources - all of which tie into the overall competencies for this course.
+It was reported that in 2011 more than 3.3 million patients were readmitted in the US within 30 days of being discharged, and they were associated with about $41 billion in hospital costs. The need for readmission indicates that inadequate care was provided to the patient at the time of first admission. The readmission rate has become an important metric measuring the overall quality of a hospital.
 
+Diabetes is well known to be consuming an increasingly large percentage of national health care expenditures and effort. The growing pervasiveness of diabetes, therefore, makes it increasingly important for medical practitioners to be able to treat diabetes effectively. Diabetes affects nearly every specialty and subspecialty of medical practice; even physicians who are not primary care providers need to be aware of potential complications and comorbidities caused by diabetes. Timely identification of patients facing a high risk of readmission can enable medical practitioners to perform additional examinations and possibly prevent future readmissions. 
 
-### **[Capstone, Part 1: Pitch + Problem Statement][part-1]**
+According to the American Diabetes Association (ADA), the economic impact of diabetes is significant. In 2007, it was estimated that the direct economic cost of diabetes for the people who have the disease in the United States was estimated to be $116 billion. When one considers the indirect costs of diabetes, such as loss of productivity, disability, and early mortality, the cost is even higher, approaching $174 billion in 2007.
 
-Pitch us on potential ideas for a data-driven project. Think of topics you’re passionate about, knowledge you’re familiar with, or problems relevant to to industries you’d like to work with. What questions do you want to answer?
-- **Requirements:** Lightning talk with 2-3 topics, including a problem statement, potential audience, goals, and success metrics, as well as possible data sources for each. Remember, if you can’t find data, you can’t do your project
-- **Format:** Slide deck
+In this project, the data I obtained represents 100,000+ unique inpatient diabetes encounters over 10 years (1999–2008) of clinical care at 130 hospitals and integrated delivery networks in the United States. Using this data, I build a machine learning binary classification model to predict diabetes patients with a high risk of readmission. Note that higher sensitivity (recall) is more desirable for medical practitioners because it is more crucial to correctly identify "high risk" patients who are likely to be readmitted than identifying "low risk" patients.
 
-
-### **[Capstone, Part 2: Dataset + Data Collection][part-2]**
-
-Use your newfound skills to source and collect the relevant data for your project. Data acquisition, transformation, and cleaning are typically the most time-consuming parts of data science projects, so don’t procrastinate!
-
-- **Requirements**: Source and format the data for your project. Perform preliminary data munging and cleaning of the data relevant to your project goals.  Describe your data keeping the intended audience of your final report in mind
-- **Format:** Table, file, or database with relevant text file or notebook description
+Optimizing for sensitivity, performed best with a Identification of readmission was consistently lower in all three  believe the limited features of 
 
 
-### **[Capstone, Part 3: EDA + Preliminary Analysis][part-3]**
 
-Begin quantitatively describing and visualizing your data. With rich datasets, EDA can go down an endless number of roads. Maintain perspective on your goals and scope your EDA accordingly. Managing your own time is a critical skill in analysis projects.  Keep notes on your approach, results, setbacks, and findings.
+1. Begin with an executive summary:
+   - What is your goal?
+   - What are your metrics?
+   - What were your findings?
+   - What risks/limitations/assumptions affect these findings?
+   
 
-- **Requirements**: Perform initial descriptive and visual analysis of your data. Identify outliers, summarize risks and limitations, and describe how your EDA will inform your modeling decisions
-- **Format:** Jupyter Notebook(s)
-
-
-### **[Capstone, Part 4: Findings + Technical Report][part-4]**
-
-Share your technical findings with your fellow data scientists. Explain your goals, describe modeling choices, evaluate model performance, and discuss results. Data science reporting is technical, but don’t forget that you should tell a compelling story about your data.
-
-- **Requirements**: Summarize your goals and metrics for success, variables of interest, and removal of any outliers or data imputation. Your process description should be concise and relevant to your goals. Summarize statistical analysis, including model selection,  implementation, evaluation, and inference. Be convincing – justify all important decisions! Clearly label plots and visualizations. Include an Executive Summary
-- **Format:** Jupyter Notebook(s)
+Measurement of HbA1c Hyperglycemia( High Blood Sugar) , a buildup of glucose in a person's bloodstream at dangerously high levels due to a person's body not being able to produce enough insulin.
 
 
-### **[Capstone, Part 5: Presentation + Non-Technical Summary][part-5]**
+## Background
 
-Take your findings and share a 10 minute presentation that delivers the most important insights from your project to a non-technical audience. Tell us the most interesting story about your data. Break down your process for a novice audience. Make sure to include compelling visuals. Time is short, so be sure to practice and include only the most relevant components of your project.
+Diabetes, is a 
 
-- **Requirements**: Convey your goals, limits/assumptions, methods and their justification, findings, and conclusions. Define technical terms. Include graphics and visualizations
-- **Format:** Interactive graphic presentation, website, or slide deck
+The dataset I obtained, initially had 50 features, as binary classification problem, I was interested in the instance of readmission of a patient after their initial "encounter" (medical visit), based on varying features such as age, gender, primary diagnosis, time spent at the hospital during the initial encounter, etc. 
+
+Through cleaning and EDA 
+
+2. Walk through your model step by step, starting with EDA
+   - What are your variables of interest?
+   - What outliers did you remove?
+   - What types of data imputation did you perform? 
+
+No imputation dropping of the following features:
+   - Weight
+   - Payer code
+   - Medical specialty 
+   
+   
+## Problem Statement 
+
+Do note that the raw data contained over 100 features, more than twice the number of features I available in the data set I obtained. So with that in mind, my analysis aimed to determine the following:
+1. What factors are the strongest indicator of hospital readmission for a diabetic patient?
+2. How well can I predict hospital readmission with "limited" features in this dataset? 
 
 
-### Approximate Due Dates
+# Dataset 
 
-These are all subject to change!
+The dataset represents 10 years (1999-2008) of clinical care at 130 US hospitals and integrated delivery networks throughout the United States: Midwest (18 hospitals), Northeast (58), South (28), and West (16). It includes over 50 features representing patient and hospital outcomes. Information was extracted from the database for encounters that satisfied the following criteria:
 
-Date | Assignment 
------| ----------
-8/31 | [Part 1][part-1]
-9/10 | [Part 2][part-2]
-9/22 | [Part 3][part-3]
-10/1 | [Part 4][part-4]
-10/4 | [Part 5][part-5]
+* It is an inpatient encounter (a hospital admission).
+* It is a diabetic encounter, that is, one during which any kind of diabetes was entered to the system as a diagnosis.
+* The length of stay was at least 1 day and at most 14 days.
+* Laboratory tests were performed during the encounter.
+* Medications were administered during the encounter.
+* The data contains such attributes as patient number, race, gender, age, admission type, time in hospital, medical specialty of admitting physician, number of lab test performed, HbA1c test result, diagnosis, number of medications, diabetic medications, number of outpatient, inpatient, and emergency visits in the year before the hospitalization, etc. For a full list of attributes and their descriptions, [click here](https://www.hindawi.com/journals/bmri/2014/781670/tab1/)
 
-<!--- LINKS --->
 
-[part-1]: ./part-01/
-[part-2]: ./part-02/
-[part-3]: ./part-03/
-[part-4]: ./part-04/
-[part-5]: ./part-05/
+## Modeling and Evaluation 
+
+Three classification models were used: Regression, K-Nearest Neighbors, Random Forest. A baseline score of () was established. Then I leveraged GridSearchCV to identify the best scores and parameters possible for our models. The results are consolidated in the table below. 
+ 
+ ## Modeling and Evaluation 
+
+Three classification models were used: Regression, K-Nearest Neighbors, Random Forest. A baseline score of () was established. Then I leveraged GridSearchCV to identify the best scores and parameters possible for our models. The results are consolidated in the table below. 
+ 
+ |Model||R2 Training Score||R2 Testing Score||Accuracy||Recall/Sensitivity Score||Comments|
+ |-----||-----------------||----------------||--------||------------------------|
+ |Logistic Regression||0.6184||0.6180||0.6181||0.4336||Higher than baseline but not very high results|
+ |KNN||0.7202||0.5586||0.5632||0.4336| 0.4731||Expected that the testing score would be higher than testing score, since KNN models commonly over-fit. Accuracy score lower than baseline score of 0.4680|
+ |Random Forest||0.9999||0.6218||0.6181||0.5151||Same accuracy scores as the logistic regression model.|
+ |Logistic w/ Important Features||0.6090||0.6093||0.6083||-||All my scores compared to the initial model decrease|
+ |KNN w/ Important Features||0.7170||0.5642||0.5603||-|| Slight in improvent in accuracy score compared to teh initial KNN model|
+ |Random Forest w/ Important Features||0.9998||0.5973||0.5930||-||Decrease in accuracy score compared to the original random orest model.|
+
+ 
+    
+ ## Findings and Conclusions
+
+
+Source: UCI Machine Learning Repository, https://archive.ics.uci.edu/ml/datasets/Diabetes+130-US+hospitals+for+years+1999-2008
+Diabetes: Magnitude and Mechanisms Michael J. Fowler, MD
+Clinical Diabetes 2010 Jan; 28(1): 42-46.
