@@ -70,9 +70,19 @@ After my initial cleaning steps I had cut the datatset to 98,052 and 48 features
 
 Let’s take a look at some of the results from EDA 
 
+### Target Feature 
+
+|Image|Comment|
+|-----|-------|
+|![alt text](images/readmission rate.png "Readmission")|*  0: 53% of patients were not readmitted to a hospital after discharge discharge. * 1: 47% of patients were readmitted to hosipital after discharge. 
+
+
 ### Demographics
 
-![alt text](images/race.png "Race Vs. Readmission")
+
+|No.|Model|
+|---|-----|
+|![alt text](images/race.png "Race Vs. Readmission")|
 
 
 ## Modeling and Evaluation 
@@ -82,7 +92,7 @@ Three classification models were used: Regression, K-Nearest Neighbors, Random F
 For each of the models I used the various methods to arruve at a as the best accuracy and sensivity/ recall socre as posiible.:
 
 1. Deterining and using just the Most Important Features Using a Decision Tree
-
+![alt text](images/important features.png "Important Features")
 
 2. Using principal Component Analysis
 3. Levarageing GridSearchCV and fine tuning paramenters to each of teh model.
