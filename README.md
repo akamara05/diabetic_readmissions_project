@@ -68,14 +68,20 @@ Three classification models were used: Regression, K-Nearest Neighbors, Random F
 
 Three classification models were used: Regression, K-Nearest Neighbors, Random Forest. A baseline score of () was established. Then I leveraged GridSearchCV to identify the best scores and parameters possible for our models. The results are consolidated in the table below. 
  
- |Model||R2 Training Score||R2 Testing Score||Accuracy||Recall/Sensitivity Score||Comments|
- |-----||-----------------||----------------||--------||------------------------|
- |Logistic Regression||0.6184||0.6180||0.6181||0.4336||Higher than baseline but not very high results|
- |KNN||0.7202||0.5586||0.5632||0.4336| 0.4731||Expected that the testing score would be higher than testing score, since KNN models commonly over-fit. Accuracy score lower than baseline score of 0.4680|
- |Random Forest||0.9999||0.6218||0.6181||0.5151||Same accuracy scores as the logistic regression model.|
- |Logistic w/ Important Features||0.6090||0.6093||0.6083||-||All my scores compared to the initial model decrease|
- |KNN w/ Important Features||0.7170||0.5642||0.5603||-|| Slight in improvent in accuracy score compared to teh initial KNN model|
- |Random Forest w/ Important Features||0.9998||0.5973||0.5930||-||Decrease in accuracy score compared to the original random orest model.|
+ |No.||Model||R2 Training Score||R2 Testing Score||Accuracy||Recall/Sensitivity Score||Comments|
+ |---||-----||-----------------||----------------||--------||------------------------||--------|
+ |1||Logistic Regression||0.6184||0.6180||0.6181||0.4336||Higher than baseline but not very high results|
+ |2||KNN||0.7202||0.5586||0.5632||0.4336| 0.4731||Expected that the testing score would be higher than testing score, since KNN models commonly over-fit. Accuracy score lower than baseline score of 0.4680|
+ |3||Random Forest||0.9999||0.6218||0.6181||0.5151||Same accuracy scores as the logistic regression model.|
+ |4||Logistic w/ Important Features||0.6090||0.6093||0.6083||-||All my scores compared to the initial model decrease|
+ |5||KNN w/ Important Features||0.7170||0.5642||0.5603||-|| Slight in improvent in accuracy score compared to the initial KNN model|
+ |6||Random Forest w/ Important Features||0.9998||0.5973||0.5930||-||Decrease in accuracy score compared to the original random forest model.|
+ |7||Logistic Regression w/ PCA||-||-||-||0.5512||Out all the logistic model variations, this produced the lowest accuracy score|
+ |8||KNN w/ PCA||-||-||-||0.5195||Although not the lowest accuracy score out all the KNN model variations, the score did decrease in compariosn to the  KNN model with limited features.|
+ |9||Random Forest w/PCA||-||-||-||0.5166||Although not the lowest accuracy score out all the random forest model variations, the score did decrease in comparison to the random forest model with limited features.|
+ |10||Logistic Regression w/Grid Search||0.6089||0.6093||0.6087||0.3866||
+ |11||KNN w/ Grid Search||0.7708||-||-||0.5195||
+ |12||Random Forest w/PCA||-||-||-||0.5166||
 
  
     
