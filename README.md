@@ -31,7 +31,7 @@ Do note that the raw data contained over 100 features, more than twice the numbe
 
 
 
-# Dataset 
+## Dataset 
 
 The dataset represents 10 years (1999-2008) of clinical care at 130 US hospitals and integrated delivery networks throughout the United States: Midwest (18 hospitals), Northeast (58), South (28), and West (16). It includes over 50 features representing patient and hospital outcomes. Information was extracted from the database for encounters that satisfied the following criteria:
 
@@ -43,20 +43,70 @@ The dataset represents 10 years (1999-2008) of clinical care at 130 US hospitals
 * The data contains such attributes as patient number, race, gender, age, admission type, time in hospital, medical specialty of admitting physician, number of lab test performed, HbA1c test result, diagnosis, number of medications, diabetic medications, number of outpatient, inpatient, and emergency visits in the year before the hospitalization, etc. For a full list of attributes and their descriptions, [click here](https://www.hindawi.com/journals/bmri/2014/781670/tab1/)
 
 
+## Cleaning 
+
+* Features/variables with more than 40% of their data missing, immediately got dropped:
+   - Weight
+   - Payer code
+   - Medical specialty 
+
+* Features/variables with 2% or less of their data missing, I dropped the corresponding rows:
+   - race
+   - diag_1'- primary diagnoses
+   - 'diag_2'- secondary diagnosis
+   - 'diag_3'- additional diagnosis
+
+A greater percentage of the variables in this data set had the same criteria so learning to apply code to change data types in order to perform EDA, was my biggest challenge within the cleaning process. Learning the necessary coded to clean these helped me grow in terms of coding efficiency.  
+
+## Explorartory Data Analysis
  
- ## Modeling and Evaluation 
+
+Let’s take a look at some of the results from EDA 
+
+Demographics 
+
+ 
+## Modeling and Evaluation 
 
 Three classification models were used: Regression, K-Nearest Neighbors, Random Forest. A baseline score of () was established. Then I leveraged GridSearchCV to identify the best scores and parameters possible for our models. The results are consolidated in the table below. 
  
  |No.|Model|R2 Training Score|R2 Testing Score|Accuracy|Recall/Sensitivity Score|Comments|
- |---|-----|-----------------|----------------|--------|------------------------|--------|
+ |---|-----|:---------------:|:--------------:|:------:|:----------------------:|:------:|
  |1|Logistic Regression|0.6184|0.6180|0.6181|0.4336|Higher than baseline but not very high results|
+ |2|KNN|0.7202|0.5586|0.5632|0.4336| 0.4731|Expected that the testing score would be higher than testing score, since KNN models commonly over-fit. Accuracy score lower than baseline score of 0.4680|
+ |3|Random Forest|0.9999|0.6218|0.6181|0.5151|Same accuracy scores as the logistic regression model.|
+ |4|Logistic w/ Important Features|0.6090|0.6093|0.6083|-|All my scores compared to the initial model decrease|
+ |5|KNN w/ Important Features|0.7170|0.5642|0.5603|-|Slight in improvement in accuracy score compared to the initial KNN model|
+ |6|Random Forest w/ Important Features|0.9998|0.5973|0.5930|-|Decrease in accuracy score compared to the original random forest model.|
+ |7|Logistic Regression w/ PCA|-|-|-|0.5512|Out all the logistic model variations, this produced the lowest accuracy score|
+ |8|KNN w/ PCA|-|-|-|0.5195|Although not the lowest accuracy score out all the KNN model variations, the score did decrease in comparison to the  KNN model with limited features.|
+ |9|Random Forest w/PCA|-|-|-|0.5166|Although not the lowest accuracy score out all the random forest model variations, the score did decrease in comparison to the random forest model with limited features.|
+ |10|Logistic Regression w/Grid Search|0.6089|0.6093|0.6087|0.3866||
+ |11|KNN w/ Grid Search|0.7708|-|-||0.5195|
+ |12|Random Forest w/PCA|-|-|-|0.5166|
+
  
  
     
- ## Findings and Conclusions
+## Findings and Conclusions
+
+* Ten major features are found to have high impact on diabetes patient readmission: number of lab test performed per patient, the number of procedures apart from lab tests conduct, number of medications administered, time a patient spends in the hospital, primary diagnosis, secondary diagnosis, additional diagnosis, total number of diagnoses entered into the system, age, and the number of inpatient visits in the year preceding the encounter.
+
+* The Random Forest Classifier achieved a 0.62 accuracy score and 0.xx AUC score. The recall or sensitivity score of
 
 
+## Next Steps 
+
+In terms of next steps, since my classification models were not quite as good at differentiating readmissions, I would like to attempt another binary classification to properly distinguish readmission occurrence. The inclusion of more features would most likely be required since I had stripped my features to only just above 30 features which I believe was the cause of consistent underperformance of my three models for identifying patient readmission. Maybe additional data such as family history  may need to be included to a dataset such as this. In a lot of medical cases, family history seems to play a major role in diagnosing patients especially with heredity diseases, such as Type 2 diabetes in this case. Maybe predictable of me, but given the current COVID pandemic, I’d be interested in exploring how this past 2 years have affected readmission rates.
+
+## References 
+
+Source: UCI Machine Learning Repository, https://archive.ics.uci.edu/ml/datasets/Diabetes+130-US+hospitals+for+years+1999-2008
 Source: UCI Machine Learning Repository, https://archive.ics.uci.edu/ml/datasets/Diabetes+130-US+hospitals+for+years+1999-2008
 Diabetes: Magnitude and Mechanisms Michael J. Fowler, MD
 Clinical Diabetes 2010 Jan; 28(1): 42-46.
+
+3 Strategies to Reduce Hospital Readmission Rates, Costs
+Identifying causes, enhancing transitional care, and engaging patients are three ways that hospitals can reduce hospital readmission rates and avoid penalties.
+By Jacqueline LaPointe
+
