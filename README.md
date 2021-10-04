@@ -18,7 +18,7 @@ Optimizing for sensitivity, the random forest classification model performed bes
 
 ## Introduction 
 
-In its simplest explanation, according to the center for Disease Control and Prevention (CDC, “diabetes is a chronic (long-lasting) health condition that affects how your body turns food into energy”. Diabetes has become a major cause of morbidity and mortality in the United States over the past several decades and is increasing in the rest of the world. Classifying diabetes has been a difficult task. Diabetes is a heterogeneous group of diseases that, through various mechanisms, cause hyperglycemia, commonly known as high blood sugar, a buildup of glucose in a person's bloodstream at dangerously high levels due to a person's body not being able to produce enough insulin in order to regulate the levels within the bloodstream. Amongst other procedures the measurement of a persons’ blood sugar levels is common method of identifying the disease. Although there has been 50+ types of diabetes detected, the most common types are Type 1; a complete lack of insulin in one’s body, Type 2;  insulin is produced but not utilized correctly,  and Gestational Diabetes; diabetes that pregnant women develop during their pregnancy. 
+In its simplest explanation, according to the Center for Disease Control and Prevention (CDC, “diabetes is a chronic (long-lasting) health condition that affects how your body turns food into energy”. Diabetes has become a major cause of morbidity and mortality in the United States over the past several decades and is increasing in the rest of the world. Classifying diabetes has been a difficult task. Diabetes is a heterogeneous group of diseases that, through various mechanisms, cause hyperglycemia, commonly known as high blood sugar, a buildup of glucose in a person's bloodstream at dangerously high levels due to a person's body not being able to produce enough insulin in order to regulate the levels within the bloodstream. Amongst other procedures the measurement of a persons’ blood sugar levels is a common method of identifying the disease. Although there have been 50+ types of diabetes detected, the most common types are Type 1; a complete lack of insulin in one’s body, Type 2;  insulin is produced but not utilized correctly,  and Gestational Diabetes; diabetes that pregnant women develop during their pregnancy. 
 
 
 The dataset I obtained, initially had 50 features, as a binary classification problem, I was interested in the instance of readmission of a patient after their initial "encounter" (medical visit), based on varying features such as age, gender, primary diagnosis, time spent at the hospital during the initial encounter, etc.    
@@ -112,7 +112,7 @@ The results are consolidated in the table below.
  |9|Random Forest w/PCA|-|-|-|0.5166|Although not the lowest accuracy score out all the random forest model variations, the score did decrease in comparison to the random forest model with limited features.|
  |10|Logistic Regression w/Grid Search|0.6089|0.6093|0.6087|0.3866||
  |11|KNN w/ Grid Search|0.7708|-|-||0.5195|
- |12|Random Forest w/PCA|-|-|-|0.5166|
+ |12|Random Forest w/Gris Search|-|-|-|0.5166|
 
  
  
