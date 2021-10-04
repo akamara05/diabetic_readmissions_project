@@ -12,7 +12,7 @@ According to the American Diabetes Association (ADA), the economic impact of dia
 
 In this project, the data I obtained represents 100,000+ unique inpatient diabetes encounters (medical visits) over 10 years (1999–2008) of clinical care at 130 hospitals and integrated delivery networks in the United States. Using this data, I build a machine learning binary classification model to predict diabetes patients with a high risk of readmission. Note that higher sensitivity (recall) is more beneficial for medical practitioners because it is more crucial to correctly identify "high risk" patients who are likely to be readmitted than identifying "low risk" patients.
 
-Optimizing for sensitivity, the random forest classification model performed best with an accuracy and sensitivity score of 0.161 and 0.61, respectively. Identification of readmission was consistently lower in all three models when limited features to what I derived as 10 most important features, using a decision tree classifier. 
+Optimizing for sensitivity, the random forest classification model performed best with an accuracy score of 0.62 and sensitivity score of 0.52, respectively. Identification of readmission was consistently lower in all three models when features were limited to what I derived as 10 most important features, using a decision tree classifier. 
 
 
 
@@ -112,7 +112,7 @@ The results are consolidated in the table below.
  |9|Random Forest w/PCA|-|-|-|0.5166|Although not the lowest accuracy score out all the random forest model variations, the score did decrease in comparison to the random forest model with limited features.|
  |10|Logistic Regression w/Grid Search|0.6089|0.6093|0.6087|0.3866||
  |11|KNN w/ Grid Search|0.7708|-|-||0.5195|
- |12|Random Forest w/Gris Search|-|-|-|0.5166|
+ |12|Random Forest w/Grid Search|-|-|-|0.5166|
 
  
  
@@ -121,7 +121,12 @@ The results are consolidated in the table below.
 
 * Ten major features are found to have high impact on diabetes patient readmission: number of lab test performed per patient, the number of procedures apart from lab tests conduct, number of medications administered, time a patient spends in the hospital, primary diagnosis, secondary diagnosis, additional diagnosis, total number of diagnoses entered into the system, age, and the number of inpatient visits in the year preceding the encounter.
 
-* The Random Forest Classifier achieved a 0.62 accuracy score and 0.xx AUC score. The recall or sensitivity score of
+    - Although not the best scores, still beneficial for medical practitioners to pay attention to these
+    features
+
+* Using Grid Search, the Random Forest Classifier achieved a 0.62 accuracy score and 0.52 sensitivity/recall score. 
+
+(Inlcude Image)
 
 
 ## Next Steps 
