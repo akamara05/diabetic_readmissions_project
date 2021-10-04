@@ -56,9 +56,9 @@ Prior to cleaning my dataset had 101,766 observations and 50 features including 
 
 * Features/variables with 2% or less of their data missing, I dropped the corresponding rows:
    - race
-   - diag_1'- primary diagnoses
-   - 'diag_2'- secondary diagnosis
-   - 'diag_3'- additional diagnosis
+   - diag_1 - primary diagnoses
+   - diag_2 - secondary diagnosis
+   - diag_3 - additional diagnosis
 
 A greater percentage of the variables in this data set had the same criteria so learning to apply code to change data types in order to perform EDA, was my biggest challenge within the cleaning process. Learning the necessary coded to clean these helped me grow in terms of coding efficiency.  
 
@@ -70,26 +70,51 @@ After my initial cleaning steps I had cut the datatset to 98,052 and 48 features
 
 Let’s take a look at some of the results from EDA 
 
+
 ### Target Feature 
 
-|Image|Comment|
-|-----|-------|
-|![alt text](images/readmission rate.png "Readmission")|*  0: 53% of patients were not readmitted to a hospital after discharge discharge. * 1: 47% of patients were readmitted to hosipital after discharge. 
+![alt text](images/readmission rate.png "Readmission")
+
+* 0: 53% of patients were not readmitted to a hospital after discharge discharge. 
+* 1: 47% of patients were readmitted to hosipital after discharge. 
 
 
 ### Demographics
 
+* 48 % of patients readmitted are between 60-80 years of age.  
+* 53 % of readmitted patients are females. 
+* 76% of readmitted patients are Caucasian.
 
-|No.|Model|
-|---|-----|
-|![alt text](images/race.png "Race Vs. Readmission")|
+### Diagnosis
 
+![alt text](images/primary diag.png "Diagnosis")
+
+There were a number of features to explore in the dataset but what was most striking to me was the primary diagnosis data. As mentioned earlier it’s key that a timely diagnosis is made by medical practitioners to help identify high risk patients and inturn reduce the occurrence of readmittance. The graph displayed provides an interesting story. When we take a look at it, it's surprising to note that diabetes itself does not lead the way in terms of primary diagnosis. In fact it is the least diagnosed. Instead patients are primarily diagnosed with a circulatory disease, such as  heart attacks, high-blood pressure,chest pains, and high cholesterol. 
+
+### Addressing Outliers
+
+__Lab Procedures Performed__
+
+On average 43 lab tests were performed during a patient's initial admission with a max of 132 performed, for a lay person that seems like a lot of procedures to perform on one patient. So I decided to take a look at outliers, doing so indicated that anything past 96 lab procedures was outside the the threshold. I removed outliers and looked to see the relationship with readmission rates, as you can see from the graph you can see a more uniform distribution and one that mirrors the readmission rates, indicating a stronger correlation to the target variable. 
+
+![alt text](images/labs.png "Labs")
+
+
+__Number of Medication__
+
+The initail model was skewed to the left so I decided to delve deeper into this feature. On average 16 distinct generic types of medication were administered to the patient during their initial admission. A maximum of 81 distinct types of medication were administered which I also deemd to be a large amount for one patient and possibly not the norm, since that is big jump from the average. A look at the outliers indicated that anything past 33 distinct types of medications falls out of the upper limit.
+Once removed, as you can see from the graph you can see a more uniform distribution and one that mirrors the readmission rates.  
+
+![alt text](images/medication.png "medication")
+
+
+After cleaning and model processing I was left with 94,620 observations and 33 features to perform model testing and training. 
 
 ## Modeling and Evaluation 
 
-Three classification models were used: Regression, K-Nearest Neighbors, Random Forest. A baseline score of () was established.
+Three classification models were used: Regression, K-Nearest Neighbors, Random Forest. A baseline score of 0.47 was established.
 
-For each of the models I used the various methods to arruve at a as the best accuracy and sensivity/ recall socre as posiible.:
+For each of the models I used these various methods to arrive at the best accuracy and sensivity/ recall socre as posiible.:
 
 1. Deterining and using just the Most Important Features Using a Decision Tree
 ![alt text](images/important features.png "Important Features")
@@ -126,12 +151,13 @@ The results are consolidated in the table below.
 
 * Using Grid Search, the Random Forest Classifier achieved a 0.62 accuracy score and 0.52 sensitivity/recall score. 
 
-(Inlcude Image)
 
 
 ## Next Steps 
 
-In terms of next steps, since my classification models were not quite as good at differentiating readmissions, I would like to attempt another binary classification to properly distinguish readmission occurrence. The inclusion of more features would most likely be required since I had stripped my features to only just above 30 features which I believe was the cause of consistent underperformance of my three models for identifying patient readmission. Maybe additional data such as family history  may need to be included to a dataset such as this. In a lot of medical cases, family history seems to play a major role in diagnosing patients especially with heredity diseases, such as Type 2 diabetes in this case. Maybe predictable of me, but given the current COVID pandemic, I’d be interested in exploring how this past 2 years have affected readmission rates.
+* In terms of next steps, since my classification models were not quite as good at differentiating readmissions, I would like to attempt other classification models to properly distinguish readmission occurrence. 
+* The scope of thw data is from 1999-2008, so I'd be intereted in fining more recent dtata, if avaiilable and taking similar steps to see if there are any improvement in the my model sucess rates. 
+* The inclusion of more features would most likely be required since I had stripped my features to just slightly more than 30 features which I believe was the cause of the consistent underperformance of my three models for identifying patient readmission. Maybe additional data such as family history  may need to be included to a dataset such as this. In a lot of medical cases, family history seems to play a major role in diagnosing patients especially with heredity diseases, such as Type 2 diabetes in this case. * A predicatble as this may be, but given the current COVID pandemic, I’d be interested in exploring how this past 2 years have affected readmission rates.
 
 
 ## References 
